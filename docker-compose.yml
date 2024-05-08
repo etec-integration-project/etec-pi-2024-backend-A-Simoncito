@@ -3,6 +3,18 @@ services:
     image: mysql:latest
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD = 123321
+      - MYSQL_ROOT_PASSWORD=123321
     ports:
       - "3306:3306"
+
+  app:
+    build: 
+      context: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
