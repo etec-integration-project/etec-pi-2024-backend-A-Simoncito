@@ -26,6 +26,7 @@ app.get('/',(req, res) => {
 app.get('/hora',async (req, res) => {
     const result = await pool.query('SELECT NOW()')
     res.json(result[0])
+
 })
 
 app.listen(3000)
