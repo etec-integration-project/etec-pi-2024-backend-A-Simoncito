@@ -6,14 +6,25 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js"
-    
   },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etec-integration-project/etec-pi-2024-backend-A-Simoncito"
+  },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/etec-integration-project/etec-pi-2024-backend-A-Simoncito/issues"
+  },
+  "homepage": "https://github.com/etec-integration-project/etec-pi-2024-backend-A-Simoncito#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.7"
   }
 }

@@ -1,14 +1,19 @@
 Esto tiene una conexion entre el backend y el MYSQL utilizando docker compose
 
-Como levantar esto y como verificar si funciona:
+Como levantarlo y como verificar si funciona:
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 0- Clonar el repositorio "git clone" (URL_DEL_REPO)
 1- En la consola poner docker compose up --build (puede tardar un poco)
 2- La base de datos extrae la hora actual utilizando una consulta (esto lo hace solo)
 3- Utilizando la web podemos poner en la url "http://localhost:3000/hora" para ver la hora
-4- o simplemente utilizando postman hacemos un GET a dicha url y nos da la hora
-4.1- en la direccion '/' tanto si hacemos un get o si usamos la web nos muestra un "hola mundo"
-5- Esto es todo por este spring
+3.1- en la direccion '/' tanto si hacemos un get o si usamos la web nos muestra un "hola mundo"
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+Creacion de un Usuario:
+
+
 
 -Angel Simon Escudero Ibañez
 
+- 1) docker compose up -d mysqldb
+- 2) docker compose up -d mysqldb
