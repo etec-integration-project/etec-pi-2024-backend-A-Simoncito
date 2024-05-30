@@ -4,7 +4,7 @@ import { registrar, iniciarSesion, listarUsuarios } from '../controladores/contr
 const router = express.Router();
 
 router.post('/registrar', registrar);
-router.post('/iniciar-sesion', iniciarSesion);
+router.post('/login', iniciarSesion);
 router.get('/usuarios', listarUsuarios);  
 
 export default router;

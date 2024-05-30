@@ -1,19 +1,35 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 Esto tiene una conexion entre el backend y el MYSQL utilizando docker compose
 
 Como levantarlo y como verificar si funciona:
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 0- Clonar el repositorio "git clone" (URL_DEL_REPO)
-1- En la consola poner docker compose up --build (puede tardar un poco)
+1- En la consola (dentro del repo) poner:
+
+- 1) docker compose up -d --build app 
+- 2) docker compose down app
+- 3) docker compose up --build
+(Esperar un poco y vas a ver un msg que dice "Tabla 'users' creada exitosamente")
+
 2- La base de datos extrae la hora actual utilizando una consulta (esto lo hace solo)
 3- Utilizando la web podemos poner en la url "http://localhost:3000/hora" para ver la hora
 3.1- en la direccion '/' tanto si hacemos un get o si usamos la web nos muestra un "hola mundo"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-Creacion de un Usuario:
+Creacion de un Usuario usando CURL:
 
+1- Registar al usuario:
 
+curl 
+
+1.1- Ademas de todo esto, dichos usuarios se agregan a la base de datos en una tabla llamada "/users"
+
+2- Iniciar secion del usuario:
+
+curl 
+
+3- Tambien podemos listar los usuarios y podemos ver que dichas contraseñas estan ocultas por medidas de seguridad
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 -Angel Simon Escudero Ibañez
 
-- 1) docker compose up -d mysqldb
-- 2) docker compose up -d mysqldb

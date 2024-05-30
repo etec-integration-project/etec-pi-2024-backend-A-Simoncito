@@ -41,7 +41,12 @@ export const iniciarSesion = async (req, res) => {
         }
 
         const token = jwt.sign({ id: usuario.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.status(200).json({ token });
+        res.status(200).json({ 
+            token,
+            message: 'Sesión iniciada con exito ' 
+        });
+
+        
     } catch (error) {
         res.status(500).send('Error al iniciar sesión');
     }
@@ -52,6 +57,6 @@ export const listarUsuarios = async (req, res) => {
         const [rows] = await pool.query('SELECT id, username FROM users');
         res.status(200).json(rows);
     } catch (error) {
-        res.status(500).send('Error al listar usuarios');
+        res.status(500).send('Error al mostrar los usuarios');
     }
 };

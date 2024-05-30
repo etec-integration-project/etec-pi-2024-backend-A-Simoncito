@@ -42,7 +42,7 @@ app.get('/hora',async (req, res) => {
 
 })
 
-app.use('/auth', rutas);
+app.use('/users', rutas);
 
 app.listen(3000, async () => {
     await initializeDatabase();
