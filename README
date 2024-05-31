@@ -18,6 +18,8 @@ Como levantarlo y como verificar si funciona:
 3.1- en la direccion '/' tanto si hacemos un get o si usamos la web nos muestra un "hola mundo"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 Creacion de un Usuario usando CURL:
+Yo recomiendo abrir otra terminal, NO se debe cerrar la terminal que esta ejecutando el docker
+Recuerda que si abrimos una nueva terminal debemos ir a la direccion del repo CD <ubi del repo>
 
 1- Registar al usuario (Ejemplo):
 
@@ -36,6 +38,10 @@ curl -X POST http://localhost:3000/users/login \
 3- Tambien podemos listar los usuarios y podemos ver que dichas contraseñas estan ocultas por medidas de seguridad
 3.1 - Ademas podemos observar que si intentamos registrar dos veces al mismo usuario no nos deja
 nos muestar un mensaje de erro, lo mismo si queremos logearnos con credenciales erroneas
+
+(Si queremos listar los usuarios)
+
+ curl -X GET http://localhost:3000/users/usuarios
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
