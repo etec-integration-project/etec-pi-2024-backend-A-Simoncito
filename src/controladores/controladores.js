@@ -5,7 +5,7 @@ import { config } from 'dotenv';
 
 config();
 
-export const registrar = async (req, res) => {
+const registrar = async (req, res) => {
     const { username, password } = req.body;
 
     try {
@@ -23,7 +23,7 @@ export const registrar = async (req, res) => {
     }
 };
 
-export const iniciarSesion = async (req, res) => {
+const iniciarSesion = async (req, res) => {
     const { username, password } = req.body;
 
     try {
@@ -43,7 +43,7 @@ export const iniciarSesion = async (req, res) => {
         const token = jwt.sign({ id: usuario.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.status(200).json({ 
             token,
-            message: 'Sesión iniciada con exito ' 
+            message: 'Sesión iniciada con éxito' 
         });
 
         
@@ -52,7 +52,7 @@ export const iniciarSesion = async (req, res) => {
     }
 };
 
-export const listarUsuarios = async (req, res) => {
+const listarUsuarios = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT id, username FROM users');
         res.status(200).json(rows);
@@ -60,3 +60,5 @@ export const listarUsuarios = async (req, res) => {
         res.status(500).send('Error al mostrar los usuarios');
     }
 };
+
+export { registrar, iniciarSesion, listarUsuarios };

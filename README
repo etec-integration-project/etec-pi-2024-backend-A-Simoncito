@@ -5,11 +5,12 @@ Como levantarlo y como verificar si funciona:
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 0- Clonar el repositorio "git clone" (URL_DEL_REPO)
-1- En la consola (dentro del repo) poner:
+1- En la consola (dentro del repo) poner EN ORDEN:
 
-- 1) docker compose up -d --build app 
-- 2) docker compose down app
-- 3) docker compose up --build
+- 1) docker compose up -d mysqldb
+- 2) docker compose up -d --build app 
+- 3) docker compose down app
+- 4) docker compose up --build
 (Esperar un poco y vas a ver un msg que dice "Tabla 'users' creada exitosamente")
 
 2- La base de datos extrae la hora actual utilizando una consulta (esto lo hace solo)
@@ -18,18 +19,26 @@ Como levantarlo y como verificar si funciona:
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 Creacion de un Usuario usando CURL:
 
-1- Registar al usuario:
+1- Registar al usuario (Ejemplo):
 
-curl 
+curl -X POST http://localhost:3000/users/registrar \
+     -H "Content-Type: application/json" \
+     -d '{"username": "usuarioNuevo", "password": "123"}'
 
 1.1- Ademas de todo esto, dichos usuarios se agregan a la base de datos en una tabla llamada "/users"
 
-2- Iniciar secion del usuario:
+2- Iniciar sesion del usuario (Con las mismas credenciales que lo registramos):
 
-curl 
+curl -X POST http://localhost:3000/users/login \
+     -H "Content-Type: application/json" \
+     -d '{"username": "usuarioNuevo", "password": "123"}'
 
 3- Tambien podemos listar los usuarios y podemos ver que dichas contraseñas estan ocultas por medidas de seguridad
+3.1 - Ademas podemos observar que si intentamos registrar dos veces al mismo usuario no nos deja
+nos muestar un mensaje de erro, lo mismo si queremos logearnos con credenciales erroneas
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 -Angel Simon Escudero Ibañez
 
+ 
