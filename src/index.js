@@ -4,6 +4,7 @@ import {config} from 'dotenv'
 import rutas from './rutas/rutas.js';
 config()
 
+
 const app = express ()
 
 export const pool = createPool({
