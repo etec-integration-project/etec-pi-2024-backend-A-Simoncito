@@ -1,6 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-Esto tiene una conexion entre el backend y el MYSQL utilizando docker compose
+Esto tiene una conexion entre el backend (utilizando docker compose), el front y el MYSQL 
+Yo recomiendo tener dos terminales, una para el back y otra para el front
 
+Levantar primero el Backend..
 Como levantarlo y como verificar si funciona:
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -13,10 +15,13 @@ Como levantarlo y como verificar si funciona:
 - 4) docker compose up --build
 (Esperar un poco y vas a ver un msg que dice "Tabla 'users' creada exitosamente")
 
-2- La base de datos extrae la hora actual utilizando una consulta (esto lo hace solo)
-3- Utilizando la web podemos poner en la url "http://localhost:3000/hora" para ver la hora
-3.1- en la direccion '/' tanto si hacemos un get o si usamos la web nos muestra un "hola mundo"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Luego de levantar el backend, el la otra terminal con el front seguir los pasos del README
+Una vez levantemos ambos accediendo a la direccion "http://127.0.0.1:3001/" podemos ver la pagina
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Creacion de un Usuario usando CURL:
 Yo recomiendo abrir otra terminal, NO se debe cerrar la terminal que esta ejecutando el docker
 Recuerda que si abrimos una nueva terminal debemos ir a la direccion del repo CD <ubi del repo>
@@ -37,7 +42,7 @@ curl -X POST http://localhost:3000/users/login \
 
 3- Tambien podemos listar los usuarios y podemos ver que dichas contraseñas estan ocultas por medidas de seguridad
 3.1 - Ademas podemos observar que si intentamos registrar dos veces al mismo usuario no nos deja
-nos muestar un mensaje de erro, lo mismo si queremos logearnos con credenciales erroneas
+nos muestar un mensaje de error, lo mismo si queremos logearnos con credenciales erroneas
 
 (Si queremos listar los usuarios)
 

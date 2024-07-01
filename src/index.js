@@ -49,11 +49,13 @@ const initializeDatabase = async () => {
         if (rows.length === 0) {
             // Insertar productos si no existen
             const productos = [
-                ["Cup 1", "Descripcion para Cup 1", "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"],
-                ["Cup 2", "Descripcion para Cup 2", "https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"],
-                ["Cup 3", "Descripcion para Cup 3", "https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"],
-                ["Cup 4", "Descripcion para Cup 4", "https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"],
-                ["Cup 5", "Descripcion para Cup 5", "https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"]
+                ["Galgo Ingles", "Descripcion para Galgo en un futuro", "https://i.imgur.com/jdl4Khr.jpeg"],
+                ["Dálmata", "Descripcion para Dalmata en un futuro", "https://i.imgur.com/zKwL7D4.jpeg"],
+                ["Corgi", "Descripcion para Corgi en un futuro", "https://i.imgur.com/0duBbbu.jpeg"],
+                ["Chow Chow", "Descripcion para chow chow en un futuro", "https://i.imgur.com/z3FoDmX.jpeg"],
+                ["Bull Terrier", "Descripcion para Bull Terrier en un futuro", "https://i.imgur.com/ZYXa9zr.jpeg"],
+                ["Borzoi", "Descripcion para Borzoi en un futuro", "https://i.imgur.com/lGpLLfo.jpeg"]
+
             ];
 
             const insertQuery = 'INSERT INTO productos (nameProduct, description, urlImage) VALUES (?, ?, ?)';
