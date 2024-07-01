@@ -60,6 +60,18 @@ const listarUsuarios = async (req, res) => {
     } catch (error) {
         res.status(500).send('Error al mostrar los usuarios');
     }
+
+    
+};
+const productos = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM productos');
+        res.status(200).json(rows);
+    } catch (error) {
+        res.status(500).send('Error al mostrar los productos');
+    }
+
+    
 };
 
-export { registrar, iniciarSesion, listarUsuarios };
+export { registrar, iniciarSesion, listarUsuarios, productos };
