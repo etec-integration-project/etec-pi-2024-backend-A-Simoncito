@@ -49,13 +49,78 @@ const initializeDatabase = async () => {
         if (rows.length === 0) {
             // Insertar productos si no existen
             const productos = [
-                ["Galgo Ingles", "Descripcion para Galgo en un futuro", "https://i.imgur.com/jdl4Khr.jpeg"],
-                ["Dálmata", "Descripcion para Dalmata en un futuro", "https://i.imgur.com/zKwL7D4.jpeg"],
-                ["Corgi", "Descripcion para Corgi en un futuro", "https://i.imgur.com/0duBbbu.jpeg"],
-                ["Chow Chow", "Descripcion para chow chow en un futuro", "https://i.imgur.com/z3FoDmX.jpeg"],
-                ["Bull Terrier", "Descripcion para Bull Terrier en un futuro", "https://i.imgur.com/ZYXa9zr.jpeg"],
-                ["Borzoi", "Descripcion para Borzoi en un futuro", "https://i.imgur.com/lGpLLfo.jpeg"]
-
+                ["Galgo Ingles", `Ser:
+            
+            Inteligente, cariñosa, acogedora
+            Talla: Grande
+            Altura: 70-73 cm
+            Peso: 20-50 kg
+            Esperanza de vida: 10-14 años
+            Tipo de abrigo: Pelo Corto
+            Colores: Negro, Blanco, Rojo, Azul, Marrón rojizo-amarillo, Color arena, Atigrado
+            Grupo FCI: Galgos
+            
+            Con una velocidad de carrera posible de 80 kilómetros por hora, el Galgo inglés está considerado el perro más rápido del mundo y es uno de los animales terrestres más veloces de todos. Criado originalmente para la caza, el galgo es sinónimo de casi cualquier otra raza. Sin embargo, el Galgo inglés también es un leal perro de familia al que le encanta tumbarse en el sofá con su "manada" y disfruta de muchos mimos. Esto no significa, sin embargo, que se pueda tener con otras razas. Prepárate para impresionantes carreras en los paseos.`, "https://i.imgur.com/jdl4Khr.jpeg"],
+                ["Dálmata", `Ser:
+            
+            Amigable, Valiente, Vivaz
+            Talla: Grande
+            Altura: 54-62 cm
+            Peso: 20-30 kg
+            Esperanza de vida: 11 - 13 años
+            Tipo de abrigo: Pelo Corto
+            Colores: Blanco puro con manchas negras o marrón hígado
+            Grupo FCI: Perros corredores - Perros sudadores - Razas relacionadas
+            
+            El dálmata es una raza croata. Los dálmatas son perros corredores y soldadores y tienen un carácter muy amistoso. Son especialmente populares como perros de familia por su carácter vivaz. También se han hecho famosos en el cine y la televisión.`, "https://i.imgur.com/zKwL7D4.jpeg"],
+                ["Corgi", `Ser:
+            
+            Persistente, Valiente, Extrovertida
+            Talla: Pequeño
+            Altura: 25-30 cm
+            Peso: 9-12 kg
+            Esperanza de vida: 12-15 años
+            Tipo de abrigo: Pelo Corto
+            Colores: Leonado, Negro y fuego, Azul, Negro y blanco, Rojo
+            Grupo FCI: Perros pastores - Perros boyeros
+            
+            El corgi galés de Pembroke es una raza canina británica cuyos orígenes se remontan al siglo X. Esta raza es pequeña y, por tanto, muy adecuada para mantenerla en interiores. También fue la raza de la reina británica. Sin embargo, el corgi galés de Pembroke no es un perro faldero puro, sino que necesita variedad y ejercicio.`, "https://i.imgur.com/0duBbbu.jpeg"],
+                ["Chow Chow", `Ser:
+            
+            Reservada, Leal, Independiente
+            Talla: Medio
+            Altura: 46-56 cm
+            Peso: 20-32 kg
+            Esperanza de vida: 8-12 años
+            Tipo de abrigo: Pelo largo
+            Colores: Negro, Rojo, Azul, Leonado, Crema, Blanco
+            Grupo FCI: Spitz - perros de tipo primitivo
+            
+            El Chow Chow es una raza canina muy conocida e inusual. Los perros proceden originariamente de China. El Chow Chow está reconocido por la FCI y asignado al Grupo 5 (Spitz asiático). Estos esponjosos amigos de cuatro patas tienen un aspecto muy llamativo y característico. Se fijan mucho en una sola persona. Como propietario de un perro, debes ser consciente de ello.`, "https://i.imgur.com/z3FoDmX.jpeg"],
+                ["Bull Terrier", `Ser:
+            
+            Amable, Perceptivo, Protector
+            Talla: Medio
+            Altura: 45-55 cm
+            Peso: 22-38 kg
+            Esperanza de vida: 10-14 años
+            Tipo de abrigo: Pelo Corto
+            Colores: Blanco, Atigrado Blanco, Rojo y Blanco, Leonado Blanco, Blanco y Negro Atigrado
+            Grupo FCI: Terrier
+            
+            La historia del bull terrier está llena de malentendidos. Debido a su naturaleza intrépida, el Bully hace olvidar demasiado a menudo a sus dueños lo juguetón y mimoso que es. Un Bully necesita mucho afecto para sentirse a gusto. Quien elija un terrier debe buscar un compañero de juegos leal, valiente y cariñoso. Quien piense en luchar, debería apuntarse al club local de artes marciales.`, "https://i.imgur.com/ZYXa9zr.jpeg"],
+                ["Borzoi", `Ser:
+            
+            Tranquilo, Inteligente, Tímido
+            Talla: Grande
+            Altura: 68-85 cm
+            Peso: 25-47 kg
+            Esperanza de vida: 10-14 años
+            Tipo de abrigo: Pelo largo
+            Colores: Combinación de todos los colores (nunca con azul, marrón o gradaciones de éstos)
+            Grupo FCI: Galgos
+            
+            El borzoi es un galgo orgulloso y noble que necesita mucho ejercicio y libertad. Es uno de los animales más rápidos del mundo. Su ansia de moverse es correspondientemente grande. Sin embargo, son criaturas tranquilas y apacibles, muy adecuadas como perros de familia. El borzoi es una mezcla perfecta de aspecto orgulloso y temperamento educado.`, "https://i.imgur.com/lGpLLfo.jpeg"]
             ];
 
             const insertQuery = 'INSERT INTO productos (nameProduct, description, urlImage) VALUES (?, ?, ?)';
