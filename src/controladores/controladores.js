@@ -6,17 +6,17 @@ import { config } from 'dotenv';
 config();
 
 const registrar = async (req, res) => {
-    const { username, password } = req.body;
+    const { name, password } = req.body;
 
     try {
-        const [existingUser] = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+        const [existingUser] = await pool.query('SELECT * FROM users WHERE username = ?', [name]);
 
         if (existingUser.length > 0) {
             return res.status(409).send('El usuario ya existe');
         }
 
         const passwordHashed = await bcrypt.hash(password, 8);
-        const [results] = await pool.query('INSERT INTO users (username, password) VALUES (?, ?)', [username, passwordHashed]);
+        const [results] = await pool.query('INSERT INTO users (username, password) VALUES (?, ?)', [name, passwordHashed]);
         res.status(201).send('Usuario registrado con éxito');
     } catch (error) {
         res.status(500).send('Error al registrar usuario');
@@ -25,10 +25,10 @@ const registrar = async (req, res) => {
 
 
 const iniciarSesion = async (req, res) => {
-    const { username, password } = req.body;
+    const { name, password } = req.body;
 
     try {
-        const [rows] = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+        const [rows] = await pool.query('SELECT * FROM users WHERE name = ?', [name]);
 
         if (rows.length === 0) {
             return res.status(404).send('No se encontro al usuario');

@@ -18,35 +18,15 @@ Como levantarlo y como verificar si funciona:
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Luego de levantar el backend, el la otra terminal con el front seguir los pasos del README
-Una vez levantemos ambos accediendo a la direccion "http://127.0.0.1:3001/" podemos ver la pagina
+Una vez levantemos ambos accediendo a la direccion "http://localhost:3001/" podemos ver la pagina
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Creacion de un Usuario usando CURL:
-Yo recomiendo abrir otra terminal, NO se debe cerrar la terminal que esta ejecutando el docker
-Recuerda que si abrimos una nueva terminal debemos ir a la direccion del repo CD <ubi del repo>
+Creacion de un Usuario:
 
-1- Registar al usuario (Ejemplo):
-
-curl -X POST http://localhost:3000/users/registrar \
-     -H "Content-Type: application/json" \
-     -d '{"username": "usuarioNuevo", "password": "123"}'
-
-1.1- Ademas de todo esto, dichos usuarios se agregan a la base de datos en una tabla llamada "/users"
-
-2- Iniciar sesion del usuario (Con las mismas credenciales que lo registramos):
-
-curl -X POST http://localhost:3000/users/login \
-     -H "Content-Type: application/json" \
-     -d '{"username": "usuarioNuevo", "password": "123"}'
-
-3- Tambien podemos listar los usuarios y podemos ver que dichas contraseñas estan ocultas por medidas de seguridad
-3.1 - Ademas podemos observar que si intentamos registrar dos veces al mismo usuario no nos deja
-nos muestar un mensaje de error, lo mismo si queremos logearnos con credenciales erroneas
-
-(Si queremos listar los usuarios)
-
- curl -X GET http://localhost:3000/users/usuarios
+Ahora podemos registrar un usuario en la misma pagina mediante un formualario de register
+ya no hace falta usar Curl ni Postman
+los usuarios se guardan en la base de datos en una tabla llamada "Users"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
