@@ -9,17 +9,18 @@ const registrar = async (req, res) => {
     const { name, password } = req.body;
 
     try {
-        const [existingUser] = await pool.query('SELECT * FROM users WHERE username = ?', [name]);
+        const [existingUser] = await pool.query('SELECT * FROM users WHERE name = ?', name);
 
         if (existingUser.length > 0) {
-            return res.status(409).send('El usuario ya existe');
+            return res.status(409).json({ mensaje: 'El usuario ya existe'});
         }
 
         const passwordHashed = await bcrypt.hash(password, 8);
-        const [results] = await pool.query('INSERT INTO users (username, password) VALUES (?, ?)', [name, passwordHashed]);
-        res.status(201).send('Usuario registrado con éxito');
+        const [results] = await pool.query('INSERT INTO users (name, password) VALUES (?, ?)', [name, passwordHashed]);
+
+        res.status(201).json({ mensaje: 'Usuario registrado con éxito'});
     } catch (error) {
-        res.status(500).send('Error al registrar usuario');
+        res.status(500).json({ mensaje: 'Error al registrar usuario', error});
     }
 };
 
