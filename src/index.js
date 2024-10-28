@@ -139,17 +139,17 @@ const initializeDatabase = async () => {
 
 };
 
-app.get('/',(req, res) => {
+app.get('/app',(req, res) => {
     res.send('Hola mundo')
 })
 
-app.get('/hora',async (req, res) => {
+app.get('/app/hora',async (req, res) => {
     const result = await pool.query('SELECT NOW()')
     res.json(result[0])
 
 })
 
-app.use('/users', rutas);
+app.use('/app/users', rutas);
 
 app.listen(3000, async () => {
     await initializeDatabase();
