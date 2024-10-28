@@ -11,10 +11,9 @@ const app = express ()
 export const pool = createPool({
     host: process.env.MYSQLDB_HOST,
     user: 'root',
-    password: process.env.MYSQLDB_PASSWORD,
-    port: process.env.MYSQLDB_DOCKER_PORT,
-    database: process.env.MYSQLDB_DATABASE 
-
+    password: process.env.MYSQL_ROOT_PASSWORD,
+    port: 3306,
+    database: process.env.MYSQL_DATABASE
 })
 
 app.use(cors());
