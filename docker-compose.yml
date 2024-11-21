@@ -1,0 +1,35 @@
+services:
+  mysqldb:
+    image: mysql
+    env_file: ./.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=123321
+      - MYSQL_DATABASE=app
+    ports:
+      - 3307:3306
+    networks:
+      - escudero
+
+
+  app:
+    build: .
+    depends_on:
+      - mysqldb
+    links:
+      - mysqldb
+    ports:
+      - 3000:3000
+    environment:
+      - MYSQLDB_HOST=mysqldb
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=123321
+      - MYSQL_DATABASE=app
+      - MYSQLDB_LOCAL_PORT=3307
+      - MYSQLDB_DOCKER_PORT=3306
+      - JWT_SECRET=mysecretkey
+    networks:
+      - escudero
+
+networks:
+  escudero:
+      

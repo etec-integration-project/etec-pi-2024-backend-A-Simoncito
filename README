@@ -1,0 +1,35 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+Esto tiene una conexion entre el backend (utilizando docker compose), el front y el MYSQL 
+Yo recomiendo tener dos terminales, una para el back y otra para el front
+
+Levantar primero el Backend..
+Como levantarlo y como verificar si funciona:
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+0- Clonar el repositorio "git clone" (URL_DEL_REPO)
+1- En la consola (dentro del repo) poner EN ORDEN:
+
+- 1) docker compose up -d mysqldb
+- 2) docker compose up -d --build app 
+- 3) docker compose down app
+- 4) docker compose up --build
+(Esperar un poco y vas a ver un msg que dice "Tabla 'users' creada exitosamente")
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Luego de levantar el backend, el la otra terminal con el front seguir los pasos del README
+Una vez levantemos ambos accediendo a la direccion "http://localhost:3001/" podemos ver la pagina
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Creacion de un Usuario:
+
+Ahora podemos registrar un usuario en la misma pagina mediante un formualario de register
+ya no hace falta usar Curl ni Postman
+los usuarios se guardan en la base de datos en una tabla llamada "Users"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-Angel Simon Escudero Ibañez
+
+ 
