@@ -75,4 +75,37 @@ const productos = async (req, res) => {
     
 };
 
-export { registrar, iniciarSesion, listarUsuarios, productos };
+const ratings = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT AVG(rating) AS calificacion FROM ratings');
+        res.status(200).json(rows[0]);
+    } catch (error) {
+        res.status(500).send('Error al mostrar los usuarios');
+    }
+};
+
+const calificar = async (req, res) => {
+    const { rating } = req.body;
+
+    try {
+        const [results] = await pool.query('INSERT INTO ratings (rating) VALUES (?)', [rating]);
+
+        res.status(201).json({ mensaje: 'Calificación registrada con éxito'});
+    } catch (error) {
+        res.status(500).json({ mensaje: 'Error al calificar la página', error});
+    }
+};
+
+const soporte = async (req, res) => {
+    const { email, content } = req.body;
+
+    try {
+        const [results] = await pool.query('INSERT INTO spoprte (email, contenido) VALUES (?, ?)', [email, content]);
+
+        res.status(201).json({ mensaje: 'Mensaje de soporte enviado con éxito'});
+    } catch (error) {
+        res.status(500).json({ mensaje: 'Error al enviar mensaje de soporte', error});
+    }
+};
+
+export { registrar, iniciarSesion, listarUsuarios, productos, ratings, calificar, soporte };

@@ -36,6 +36,19 @@ const initializeDatabase = async () => {
                 urlImage VARCHAR(255) NOT NULL
             )
         `);
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS ratings (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                rating INT NOT NULL
+            )
+        `);
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS soporte (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                email VARCHAR(255) NOT NULL,
+                contenido LONGTEXT NOT NULL
+            )
+        `);
 
         console.log("Tabla 'users' creada exitosamente.");
     } catch (error) {
