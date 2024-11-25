@@ -100,7 +100,7 @@ const soporte = async (req, res) => {
     const { email, content } = req.body;
 
     try {
-        const [results] = await pool.query('INSERT INTO spoprte (email, contenido) VALUES (?, ?)', [email, content]);
+        const [results] = await pool.query('INSERT INTO soporte (email, contenido) VALUES (?, ?)', [email, content]);
 
         res.status(201).json({ mensaje: 'Mensaje de soporte enviado con éxito'});
     } catch (error) {
