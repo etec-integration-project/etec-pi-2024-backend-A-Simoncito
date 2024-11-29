@@ -3,6 +3,9 @@ import {createPool} from 'mysql2/promise'
 import {config} from 'dotenv'
 import rutas from './rutas/rutas.js';
 import cors from "cors";
+import cookieParser from "cookie-parser";
+
+
 config()
 
 
@@ -16,7 +19,13 @@ export const pool = createPool({
     database: process.env.MYSQL_DATABASE
 })
 
-app.use(cors());
+app.use(cookieParser());
+app.use(
+	cors({
+		origin: "*",
+		credentials: true,
+	})
+);
 app.use(express.json());
 
 const initializeDatabase = async () => {
@@ -33,20 +42,24 @@ const initializeDatabase = async () => {
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 nameProduct VARCHAR(255) NOT NULL,
                 description TEXT NOT NULL,
-                urlImage VARCHAR(255) NOT NULL
+                urlImage VARCHAR(255) NOT NULL,
+                user_id INT NOT NULL DEFAULT 0
             )
         `);
         await pool.query(`
             CREATE TABLE IF NOT EXISTS ratings (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                rating INT NOT NULL
+                rating INT NOT NULL,
+                user_id INT NOT NULL,
+                comment VARCHAR(255) NOT NULL
             )
         `);
         await pool.query(`
             CREATE TABLE IF NOT EXISTS soporte (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 email VARCHAR(255) NOT NULL,
-                contenido LONGTEXT NOT NULL
+                contenido LONGTEXT NOT NULL,
+                user_id INT NOT NULL
             )
         `);
 
